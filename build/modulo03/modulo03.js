@@ -1,31 +1,23 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-const fetchURL = 'https://jsonplaceholder.typicode.com/posts';
-function fetchPosts(url) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch(url);
-        let body = yield response.json();
-        return body;
-    });
+/* Module 3: Implement interfaces in TypeScript
+   Lab End  */
+/*  TODO: Update the calculateInterestOnlyLoanPayment function. */
+function calculateInterestOnlyLoanPayment(loanTerms) {
+    // Calculates the monthly payment of an interest only loan
+    let interest = loanTerms.interestRate / 1200; // Calculates the Monthly Interest Rate of the loan
+    let payment;
+    payment = loanTerms.principle * interest;
+    return 'The interest only loan payment is ' + payment.toFixed(2);
 }
-function showPost() {
-    return __awaiter(this, void 0, void 0, function* () {
-        let posts = yield fetchPosts(fetchURL);
-        // Display the contents of the first item in the response
-        let post = posts[0];
-        console.log('Post #' + post.id);
-        // If the userId is 1, then display a note that it's an administrator
-        console.log('Author: ' + (post.userId === 1 ? "Administrator" : post.userId.toString()));
-        console.log('Title: ' + post.title);
-        console.log('Body: ' + post.body);
-    });
+/*  TODO: Update the calculateConventionalLoanPayment function. */
+function calculateConventionalLoanPayment(loanTerms) {
+    // Calculates the monthly payment of a conventional loan
+    let interest = loanTerms.interestRate / 1200; // Calculates the Monthly Interest Rate of the loan
+    let payment;
+    payment = loanTerms.principle * interest / (1 - (Math.pow(1 / (1 + interest), loanTerms.months)));
+    return 'The conventional loan payment is ' + payment.toFixed(2);
 }
-showPost();
+let interestOnlyPayment = calculateInterestOnlyLoanPayment({ principle: 30000, interestRate: 5 });
+let conventionalPayment = calculateConventionalLoanPayment({ principle: 30000, interestRate: 5, months: 180 });
+console.log(interestOnlyPayment); //* Returns "The interest only loan payment is 125.00" 
+console.log(conventionalPayment); //* Returns "The conventional loan payment is 237.24" 
