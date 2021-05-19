@@ -1,0 +1,19 @@
+{
+  "name": "estudo-ts-microsoft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoeek/estudo-ts-microsoft.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leoeek/estudo-ts-microsoft/issues"
+  },
+  "homepage": "https://github.com/leoeek/estudo-ts-microsoft#readme"
+}
